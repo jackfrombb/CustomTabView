@@ -5,4 +5,4 @@ Example [here](https://github.com/jackfrombb/CustomTabView/blob/master/CustomTab
 
 # based on [wxxsw/TabBar](https://github.com/wxxsw/TabBar)
 
-![Screenshot](https://disk.yandex.ru/i/0Ce2cTzYc25kEA)
+![Screenshot](https://github.com/jackfrombb/CustomTabView/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202021-07-01%20at%2016.42.30.png?raw=true)
