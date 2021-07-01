@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  CustomTabView
-//
-//  Created by Евгений Кондаков on 01.07.2021.
-//
-
 import UIKit
 import SwiftUI
 

@@ -1,10 +1,6 @@
-//
-//  TabBarItem.swift
-//  TabBar
-//
-//  Created by Gesen on 2020/2/23.
+//  Based on Gesen
 //  https://github.com/wxxsw/TabBar
-//
+//  Modifed by JackFromBB
 
 import SwiftUI
 

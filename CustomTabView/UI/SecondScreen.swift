@@ -1,10 +1,3 @@
-//
-//  SecondScreen.swift
-//  SwUiPlusUiKit
-//
-//  Created by Евгений Кондаков on 19.06.2021.
-//
-
 import SwiftUI
 
 struct SecondScreen: View {
