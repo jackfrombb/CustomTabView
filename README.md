@@ -1,4 +1,4 @@
-Simple custom TabView for SwiftUI
+Simple custom TabView for SwiftUI   
 iOS 13 an up
 
 Example [here](https://github.com/jackfrombb/CustomTabView/blob/master/CustomTabView/UI/ContentView.swift)
