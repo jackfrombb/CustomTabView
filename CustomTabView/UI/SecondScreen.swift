@@ -1,5 +1,6 @@
 import SwiftUI
 
+///For easy addition of screens
 struct SecondScreen: View {
     
     @State var name:String
@@ -11,7 +12,7 @@ struct SecondScreen: View {
             VStack{
                 ZStack{
                     
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    RoundedRectangle(cornerRadius: 25.0)
                     Text("\(pageNum)")
                         .font(.system(size: 40))
                         .fontWeight(.bold)

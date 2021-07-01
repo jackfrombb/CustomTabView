@@ -4,6 +4,8 @@
 
 import SwiftUI
 
+
+///Simple custom TabView
 @available(iOS 13.0, *)
 public struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
     
@@ -52,6 +54,7 @@ public struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashab
         })
     }
 }
+
 
 extension TabBar{
     public init(_ selection: SelectionValue, @ViewBuilder content: () -> Content) {
