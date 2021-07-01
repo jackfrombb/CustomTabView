@@ -9,7 +9,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
     
-    @Binding public var barHeight: CGFloat
+     @Binding public var barHeight: CGFloat
     
     private var model: TabBarModel<SelectionValue>
     private let content: Content
@@ -25,6 +25,7 @@ public struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashab
             ZStack{
                 content
                     .environmentObject(model)
+                    .animation(.easeIn)
             }
             Divider()
             Spacer()
@@ -40,6 +41,8 @@ public struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashab
                         VStack(spacing: 0){
                             preference.label
                                 .frame(width: UIScreen.main.bounds.width / CGFloat(preferences.count))
+                                .foregroundColor(self.model.selection == (preference.index as? SelectionValue) ? .blue : .black)
+                                
                         }.onTapGesture {
                             if let i = preference.index as? SelectionValue {
                                 self.model.selection = i
