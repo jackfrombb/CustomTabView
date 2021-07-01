@@ -2,18 +2,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let tabIconSize:CGFloat = 28
     @State var selection = 0
     
     var body: some View {
         TabBar(selection){
             
-            SecondScreen(name: "First", pageNum: 1, backColor: Color.white).tabBarItem(0, {
+            ScreenForClarity(name: "First", pageNum: 1, backColor: Color.white).tabBarItem(0, {
                 TabItem(itemName: "First",
                         itemLogo: "heart")
             })
             
-            SecondScreen(name: "Second", pageNum: 2, backColor: Color.green).tabBarItem(1, {
+            ScreenForClarity(name: "Second", pageNum: 2, backColor: Color.green).tabBarItem(1, {
                 TabItem(itemName: "Second",
                         itemLogo: "person.crop.circle")
             })

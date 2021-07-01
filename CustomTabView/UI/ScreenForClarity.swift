@@ -1,7 +1,7 @@
 import SwiftUI
 
 ///For easy addition of screens
-struct SecondScreen: View {
+struct ScreenForClarity: View {
     
     @State var name:String
     @State var pageNum:Int
@@ -31,6 +31,6 @@ struct SecondScreen: View {
 
 struct SecondScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SecondScreen(name: "First", pageNum: 1, backColor: Color.white)
+        ScreenForClarity(name: "First", pageNum: 1, backColor: Color.white)
     }
 }
