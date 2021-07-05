@@ -7,20 +7,20 @@ import SwiftUI
 
 ///Simple custom TabView
 @available(iOS 13.0, *)
-public struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
+struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
     
-     @Binding public var barHeight: CGFloat
-    
-    private var model: TabBarModel<SelectionValue>
+    @Binding var barHeight: CGFloat
+    @ObservedObject private var model: TabBarSelection<SelectionValue>
     private let content: Content
     
-    public init(_ selection: SelectionValue, _ barHeight: Binding<CGFloat>, @ViewBuilder content: () -> Content) {
-        self.model = TabBarModel(selection: selection)
+    init(_ selection: TabBarSelection<SelectionValue>, _ barHeight: Binding<CGFloat>, @ViewBuilder content: () -> Content) {
+        self.model = selection
         self.content = content()
         self._barHeight = barHeight
     }
     
     public var body: some View {
+        
         VStack(spacing:0){
             ZStack{
                 content
@@ -41,7 +41,9 @@ public struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashab
                         VStack(spacing: 0){
                             preference.label
                                 .frame(width: UIScreen.main.bounds.width / CGFloat(preferences.count))
-                                .foregroundColor(self.model.selection == (preference.index as? SelectionValue) ? .blue : .black)
+                                .foregroundColor(self.model.selection ==
+                                                    (preference.index as? SelectionValue) ? .blue : .black)
+                            //FIXME: Replace .black some Color.init("TabNormal") for dark theme support
                                 
                         }.onTapGesture {
                             if let i = preference.index as? SelectionValue {
@@ -54,19 +56,24 @@ public struct TabBar<SelectionValue, Content>: View where SelectionValue: Hashab
             }
             .animation(.easeIn)
             
+            
         })
     }
 }
 
-
 extension TabBar{
-    public init(_ selection: SelectionValue, @ViewBuilder content: () -> Content) {
+     init(_ selection: TabBarSelection<SelectionValue>, @ViewBuilder content: () -> Content) {
         self.init(selection, .constant(60), content: content)
     }
 }
 
 extension TabBar where SelectionValue == Int{
-    public init(@ViewBuilder content: () -> Content) {
-        self.init(0, .constant(60), content: content)
+    
+    init(@ViewBuilder content: () -> Content) {
+        self.init(TabBarSelection(selection: 0), .constant(60), content: content)
+    }
+    
+    init(selection:SelectionValue, @ViewBuilder content: () -> Content){
+        self.init(TabBarSelection(selection: selection), .constant(60), content: content)
     }
 }

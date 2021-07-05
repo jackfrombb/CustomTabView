@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var selection = 0
+    @State var selection = TabBarSelection(selection: 0)
     
     var body: some View {
         TabBar(selection){
@@ -10,7 +10,9 @@ struct ContentView: View {
             ScreenForClarity(name: "First", pageNum: 1, backColor: Color.white).tabBarItem(0, {
                 TabItem(itemName: "First",
                         itemLogo: "heart")
-            })
+            }).onTapGesture {
+                selection.selection = 1
+            }
             
             ScreenForClarity(name: "Second", pageNum: 2, backColor: Color.green).tabBarItem(1, {
                 TabItem(itemName: "Second",

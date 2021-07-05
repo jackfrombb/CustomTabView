@@ -16,7 +16,7 @@ extension View {
 @available(iOS 13.0, *)
 struct TabBarItemModifier<SelectionValue: Hashable, Label: View>: ViewModifier {
     
-    @EnvironmentObject var model: TabBarModel<SelectionValue>
+    @EnvironmentObject var model: TabBarSelection<SelectionValue>
     let index: SelectionValue
     let label: Label
     
@@ -34,7 +34,7 @@ struct TabBarItemModifier<SelectionValue: Hashable, Label: View>: ViewModifier {
 }
 
 @available(iOS 13.0, *)
-class TabBarModel<SelectionValue: Hashable>: ObservableObject {
+class TabBarSelection<SelectionValue: Hashable>: ObservableObject {
     
     @Published var selection: SelectionValue
     
